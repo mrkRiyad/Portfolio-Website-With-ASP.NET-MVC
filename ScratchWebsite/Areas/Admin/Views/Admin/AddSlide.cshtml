@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Slider";
+    ViewBag.SubTitle = "Home Page Slider Settings";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <h3 class="tile-title">Add New Slide</h3>
+            <div class="tile-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label">Title</label>
+                                <input class="form-control" type="text" placeholder="Enter Slide Title">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Content</label>
+                                <textarea class="form-control" rows="12" placeholder="Enter Slide Content"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Insert Slide Image</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Display Order Priority</label>
+                                <input class="form-control" type="text" placeholder="1 is higher than 100">
+                            </div>
+                            <div class="toggle lg">
+                                <label>
+                                    Public
+                                    <input type="checkbox"><span class="button-indecator"></span>
+                                </label>
+                            </div>
+                            <div class="tile-footer">
+                                <button class="btn btn-primary pull-right" type="button">Publish</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="tile">
+        <div class="tile-title-w-btn">
+            <h3 class="title">Date Picker</h3>
+            <p><a class="btn btn-primary icon-btn" href="http://bootstrap-datepicker.readthedocs.org/en/stable/options.html" target="_blank"><i class="fa fa-file"></i>Docs</a></p>
+        </div>
+        <div class="tile-body">
+            <p>This plugin can be used to let the user select the date in a convinient way.</p>
+            <h4>Demo</h4>
+            <input class="form-control" id="demoDate" type="text" placeholder="Select Date">
+        </div>
+    </div>
+</div>
+
+@section scripts 
+{
+    <script>
+        $('#demoDate').datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true,
+            todayHighlight: true
+        });
+    </script>
+}

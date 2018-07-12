@@ -191,6 +191,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,6 +205,24 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assets\css\main.css" />
+    <Content Include="Areas\Admin\Assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Admin\Assets\js\main.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\bootstrap-datepicker.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\bootstrap-notify.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\jquery-ui.custom.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\moment.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\pace.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\select2.min.js" />
+    <Content Include="Areas\Admin\Assets\js\plugins\sweetalert.min.js" />
+    <Content Include="Areas\Admin\Assets\js\popper.min.js" />
+    <Content Include="Areas\Admin\Views\addSlide.html" />
+    <Content Include="Areas\Admin\Views\allslides.html" />
+    <Content Include="Areas\Admin\Views\index.html" />
+    <Content Include="Areas\Admin\Views\page-login.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -239,6 +258,10 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\AddSlide.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddSlide.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -308,9 +331,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
