@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+﻿@model IEnumerable<ScratchWebsite.Areas.Admin.Models.UserViewModel>
 @{
     ViewBag.Title = "Users";
 }
@@ -13,6 +13,7 @@
                             <th>#</th>
                             <th>User Name</th>
                             <th>Email</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,6 +23,7 @@
                                 <td>@item.Id</td>
                                 <td>@item.UserName</td>
                                 <td>@item.Email</td>
+                                <td>@Html.ActionLink("Get", "Get", new { id = item.Id })</td>
                             </tr>
                         }
                     </tbody>

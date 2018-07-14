@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using ScratchWebsite.Areas.Admin.Models;
 using ScratchWebsite.Models;
 using System;
@@ -29,15 +30,30 @@ namespace ScratchWebsite.Areas.Admin.Controllers
                 _userManager = value;
             }
         }
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/User
         public ActionResult Index()
         {
-            var users = UserManager.Users.ToList();
-            return View(users);
+            //var users = UserManager.Users.ToList();
+            //var vm = new UserViewModel();
+            //foreach (var item in users)
+            //{
+            //    vm.Id = item.Id;
+            //    vm.UserName = item.UserName;
+            //    vm.Email = item.Email;
+            //    vm.Roles = item.Roles;
+            //}
+            var userList = new List<UserViewModel>();
+            foreach (var item in db.Users) 
+            {
+                var user = new UserViewModel(item);
+                userList.Add(user);
+            }
+            return View(userList);
         }
         public ActionResult Get(UserViewModel user)
         {
-            var userById = UserManager.FindByIdAsync(user.ID.ToString());
+            var userById = UserManager.Users.Where(u => u.Id == user.Id).FirstOrDefault();
             return View(userById);
         }
     }
