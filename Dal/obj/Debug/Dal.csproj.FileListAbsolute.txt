@@ -1,0 +1,10 @@
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\Dal.dll.config
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\Dal.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\Dal.pdb
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\EntityFramework.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\EntityFramework.xml
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.pdb
