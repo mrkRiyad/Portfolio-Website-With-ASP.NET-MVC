@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ScratchWebsite.Areas.Admin.Models.ViewModel.ServiceViewModel>
+@{
+    ViewBag.Title = "Services";
+}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <h3 class="tile-title">All Slides</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>@Html.DisplayNameFor(m => m.ServiceName)</th>
+                                <th>@Html.DisplayNameFor(m => m.ServiceDescription)</th>
+                                <th>@Html.DisplayNameFor(m => m.Icon)</th>
+                                <th>@Html.DisplayNameFor(m => m.DisplayOrder)</th>
+                                <th>@Html.DisplayNameFor(m => m.IsActive)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ServiceID</td>
+                                    <td>@item.ServiceName.WordCount(3)</td>
+                                    <td>@item.ServiceDescription.WordCount(8)</td>
+                                    <td>@item.Icon</td>
+                                    <td>@item.DisplayOrder</td>
+                                    <td>@Convert.ToInt32(@item.IsActive).IsPublic()</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", new { id = item.ServiceID})"><i class="fa fa-edit"></i> Edit</a>
+                                        <a class="btn btn-danger btn-sm" onclick = "return confirm('Are you sure you wish to delete this article?');" href="@Url.Action("Delete", new { id = item.ServiceID})"><i class="fa fa-trash-o"> Delete</i></a> 
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section scripts {
+
+    <script>
+
+        $('.delete').click(function () {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+        });
+
+    </script>
+
+}

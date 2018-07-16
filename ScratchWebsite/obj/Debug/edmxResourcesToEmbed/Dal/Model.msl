@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ScratchPortfolioModelStoreContainer" CdmEntityContainer="ScratchPortfolioEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatProjectRef">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.CatProjectRef">
+        <MappingFragment StoreEntitySet="CatProjectRef">
+          <ScalarProperty Name="CPRID" ColumnName="CPRID" />
+          <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+          <ScalarProperty Name="fkCategoryID" ColumnName="fkCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaGalleries">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.MediaGalleries">
+        <MappingFragment StoreEntitySet="MediaGalleries">
+          <ScalarProperty Name="MGID" ColumnName="MGID" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="FilePathOrLink" ColumnName="FilePathOrLink" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="IsThumbnail" ColumnName="IsThumbnail" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGalleryRef">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.ProductGalleryRef">
+        <MappingFragment StoreEntitySet="ProductGalleryRef">
+          <ScalarProperty Name="PGRID" ColumnName="PGRID" />
+          <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+          <ScalarProperty Name="fkMGID" ColumnName="fkMGID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.Projects">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjecName" ColumnName="ProjecName" />
+          <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+          <ScalarProperty Name="ProjectTechnology" ColumnName="ProjectTechnology" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sliders">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.Sliders">
+        <MappingFragment StoreEntitySet="Sliders">
+          <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+          <ScalarProperty Name="SliderTitle" ColumnName="SliderTitle" />
+          <ScalarProperty Name="SliderDescription" ColumnName="SliderDescription" />
+          <ScalarProperty Name="SliderImageUrl" ColumnName="SliderImageUrl" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

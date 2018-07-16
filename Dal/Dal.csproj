@@ -116,5 +116,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib.ExtendedMethod\Lib.ExtendedMethod.csproj">
+      <Project>{4545bc7f-6ef0-4436-b2d0-c48e4141783f}</Project>
+      <Name>Lib.ExtendedMethod</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

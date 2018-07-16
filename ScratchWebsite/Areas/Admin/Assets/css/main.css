@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Vali Admin
  * Author: Pratik Borsadiya
@@ -14367,7 +14367,7 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
-.toggle.lg input[type="checkbox"] + .button-indecator:before {
+.toggle.lg input[type="checkbox"] ~ .button-indecator:before {
   font-size: 30px;
 }
 
@@ -14375,7 +14375,7 @@ be a descendant of the grid when it is being dragged.
   display: none;
 }
 
-.toggle input[type="checkbox"] + .button-indecator {
+.toggle input[type="checkbox"] ~ .button-indecator {
   cursor: pointer;
   display: block;
   -webkit-user-select: none;
@@ -14384,7 +14384,7 @@ be a descendant of the grid when it is being dragged.
           user-select: none;
 }
 
-.toggle input[type="checkbox"] + .button-indecator:before {
+.toggle input[type="checkbox"] ~ .button-indecator:before {
   content: "";
   font-family: "FontAwesome";
   speak: none;
@@ -14400,18 +14400,18 @@ be a descendant of the grid when it is being dragged.
   vertical-align: -2px;
 }
 
-.toggle input[type="checkbox"]:checked + .button-indecator:before {
+.toggle input[type="checkbox"]:checked ~ .button-indecator:before {
   content: "";
   color: #009688;
   -webkit-animation: toggleBtn 0.3s ease-in-out;
           animation: toggleBtn 0.3s ease-in-out;
 }
 
-.toggle input[type="checkbox"]:disabled + .button-indecator {
+.toggle input[type="checkbox"]:disabled ~ .button-indecator {
   cursor: not-allowed !important;
 }
 
-.toggle input[type="checkbox"]:disabled + .button-indecator:before {
+.toggle input[type="checkbox"]:disabled ~ .button-indecator:before {
   color: #ccc;
 }
 
@@ -14419,7 +14419,7 @@ be a descendant of the grid when it is being dragged.
   display: none;
 }
 
-.toggle-flip input[type="checkbox"] + .flip-indecator {
+.toggle-flip input[type="checkbox"] ~ .flip-indecator {
   position: relative;
   width: 60px;
   height: 30px;
@@ -14433,7 +14433,7 @@ be a descendant of the grid when it is being dragged.
           perspective: 90px;
 }
 
-.toggle-flip input[type="checkbox"] + .flip-indecator:before, .toggle-flip input[type="checkbox"] + .flip-indecator:after {
+.toggle-flip input[type="checkbox"] ~ .flip-indecator:before, .toggle-flip input[type="checkbox"] ~ .flip-indecator:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -14449,12 +14449,12 @@ be a descendant of the grid when it is being dragged.
   transition: all 0.5s ease;
 }
 
-.toggle-flip input[type="checkbox"] + .flip-indecator:before {
+.toggle-flip input[type="checkbox"] ~ .flip-indecator:before {
   content: attr(data-toggle-off);
   background-color: #ddd;
 }
 
-.toggle-flip input[type="checkbox"] + .flip-indecator:after {
+.toggle-flip input[type="checkbox"] ~ .flip-indecator:after {
   content: attr(data-toggle-on);
   background-color: #009688;
   color: #fff;
@@ -14462,17 +14462,17 @@ be a descendant of the grid when it is being dragged.
           transform: rotateY(-180deg);
 }
 
-.toggle-flip input[type="checkbox"]:checked + .flip-indecator:before {
+.toggle-flip input[type="checkbox"]:checked ~ .flip-indecator:before {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-.toggle-flip input[type="checkbox"]:checked + .flip-indecator:after {
+.toggle-flip input[type="checkbox"]:checked ~ .flip-indecator:after {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
 }
 
-.toggle-flip input[type="checkbox"]:disabled + .flip-indecator {
+.toggle-flip input[type="checkbox"]:disabled ~ .flip-indecator {
   cursor: not-allowed !important;
   color: #ccc;
 }

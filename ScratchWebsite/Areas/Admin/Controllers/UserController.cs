@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using ScratchWebsite.Areas.Admin.Models;
+using ScratchWebsite.Areas.Admin.Models.ViewModel;
 using ScratchWebsite.Models;
 using System;
 using System.Collections.Generic;

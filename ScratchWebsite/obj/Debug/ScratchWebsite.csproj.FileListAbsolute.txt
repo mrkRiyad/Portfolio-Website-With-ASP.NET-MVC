@@ -190,3 +190,5 @@ D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Microsoft.AI.Dep
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Microsoft.AI.WindowsServer.xml
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Microsoft.AI.Web.xml
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Lib.ExtendedMethod.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\ScratchWebsite\bin\Lib.ExtendedMethod.pdb

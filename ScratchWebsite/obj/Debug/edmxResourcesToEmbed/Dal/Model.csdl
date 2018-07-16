@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ScratchPortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="CatProjectRef" Relationship="Self.FK__CatProjec__fkCat__15502E78" FromRole="Categories" ToRole="CatProjectRef" />
+  </EntityType>
+  <EntityType Name="CatProjectRef">
+    <Key>
+      <PropertyRef Name="CPRID" />
+    </Key>
+    <Property Name="CPRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkProjectID" Type="Int32" Nullable="false" />
+    <Property Name="fkCategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK__CatProjec__fkCat__15502E78" FromRole="CatProjectRef" ToRole="Categories" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK__CatProjec__fkPro__145C0A3F" FromRole="CatProjectRef" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="MediaGalleries">
+    <Key>
+      <PropertyRef Name="MGID" />
+    </Key>
+    <Property Name="MGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Caption" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FilePathOrLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <Property Name="IsThumbnail" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="ProductGalleryRef" Relationship="Self.FK__ProductGa__fkMGI__1B0907CE" FromRole="MediaGalleries" ToRole="ProductGalleryRef" />
+  </EntityType>
+  <EntityType Name="ProductGalleryRef">
+    <Key>
+      <PropertyRef Name="PGRID" />
+    </Key>
+    <Property Name="PGRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkProjectID" Type="Int32" Nullable="false" />
+    <Property Name="fkMGID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MediaGalleries" Relationship="Self.FK__ProductGa__fkMGI__1B0907CE" FromRole="ProductGalleryRef" ToRole="MediaGalleries" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK__ProductGa__fkPro__1A14E395" FromRole="ProductGalleryRef" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjecName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectTechnology" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="CatProjectRef" Relationship="Self.FK__CatProjec__fkPro__145C0A3F" FromRole="Projects" ToRole="CatProjectRef" />
+    <NavigationProperty Name="ProductGalleryRef" Relationship="Self.FK__ProductGa__fkPro__1A14E395" FromRole="Projects" ToRole="ProductGalleryRef" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Icon" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sliders">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SliderTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SliderDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="SliderImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK__CatProjec__fkCat__15502E78">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="CatProjectRef" Type="Self.CatProjectRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="CatProjectRef">
+        <PropertyRef Name="fkCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CatProjec__fkPro__145C0A3F">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+    <End Role="CatProjectRef" Type="Self.CatProjectRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="CatProjectRef">
+        <PropertyRef Name="fkProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductGa__fkMGI__1B0907CE">
+    <End Role="MediaGalleries" Type="Self.MediaGalleries" Multiplicity="1" />
+    <End Role="ProductGalleryRef" Type="Self.ProductGalleryRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaGalleries">
+        <PropertyRef Name="MGID" />
+      </Principal>
+      <Dependent Role="ProductGalleryRef">
+        <PropertyRef Name="fkMGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductGa__fkPro__1A14E395">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+    <End Role="ProductGalleryRef" Type="Self.ProductGalleryRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="ProductGalleryRef">
+        <PropertyRef Name="fkProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ScratchPortfolioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="CatProjectRef" EntityType="Self.CatProjectRef" />
+    <EntitySet Name="MediaGalleries" EntityType="Self.MediaGalleries" />
+    <EntitySet Name="ProductGalleryRef" EntityType="Self.ProductGalleryRef" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" />
+    <EntitySet Name="Services" EntityType="Self.Services" />
+    <EntitySet Name="Sliders" EntityType="Self.Sliders" />
+    <AssociationSet Name="FK__CatProjec__fkCat__15502E78" Association="Self.FK__CatProjec__fkCat__15502E78">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="CatProjectRef" EntitySet="CatProjectRef" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CatProjec__fkPro__145C0A3F" Association="Self.FK__CatProjec__fkPro__145C0A3F">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="CatProjectRef" EntitySet="CatProjectRef" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductGa__fkMGI__1B0907CE" Association="Self.FK__ProductGa__fkMGI__1B0907CE">
+      <End Role="MediaGalleries" EntitySet="MediaGalleries" />
+      <End Role="ProductGalleryRef" EntitySet="ProductGalleryRef" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductGa__fkPro__1A14E395" Association="Self.FK__ProductGa__fkPro__1A14E395">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProductGalleryRef" EntitySet="ProductGalleryRef" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

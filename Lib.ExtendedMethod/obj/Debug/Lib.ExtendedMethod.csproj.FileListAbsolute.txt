@@ -1,0 +1,5 @@
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Lib.ExtendedMethod\bin\Debug\Lib.ExtendedMethod.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Lib.ExtendedMethod\bin\Debug\Lib.ExtendedMethod.pdb
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Lib.ExtendedMethod\obj\Debug\Lib.ExtendedMethod.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Lib.ExtendedMethod\obj\Debug\Lib.ExtendedMethod.pdb
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Lib.ExtendedMethod\obj\Debug\Lib.ExtendedMethod.csprojResolveAssemblyReference.cache

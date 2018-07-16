@@ -8,3 +8,5 @@ D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\EntityFramework.SqlSe
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.dll
 D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\obj\Debug\Dal.pdb
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\Lib.ExtendedMethod.dll
+D:\Github\Portfolio-Website-With-ASP.NET-MVC\Dal\bin\Debug\Lib.ExtendedMethod.pdb

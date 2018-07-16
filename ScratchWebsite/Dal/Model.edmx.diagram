@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48e16b0674cd4593acfaecc444d775de" Name="Diagram1">
+        <EntityTypeShape EntityType="ScratchPortfolioModel.Categories" Width="1.5" PointX="6.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.CatProjectRef" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.MediaGalleries" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.ProductGalleryRef" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.Projects" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.Services" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.Sliders" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="ScratchPortfolioModel.FK__CatProjec__fkCat__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="ScratchPortfolioModel.FK__CatProjec__fkPro__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="ScratchPortfolioModel.FK__ProductGa__fkMGI__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ScratchPortfolioModel.FK__ProductGa__fkPro__1A14E395" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

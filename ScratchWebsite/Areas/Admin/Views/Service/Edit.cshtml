@@ -1,0 +1,69 @@
+﻿@model ScratchWebsite.Areas.Admin.Models.ViewModel.ServiceViewModel
+@{
+    ViewBag.Title = "Services";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <h3 class="tile-title">Edit Service</h3>
+            <div class="tile-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.HiddenFor(m => m.ServiceID)
+                            <div class="form-group">
+                                @Html.DisplayNameFor(m => m.ServiceName)
+                                @Html.TextBoxFor(m => m.ServiceName, new { @class = "form-control", @placeholder = "Enter Service Title" })
+                            </div>
+                            <div class="form-group">
+                                @Html.DisplayNameFor(m => m.ServiceDescription)
+                                @Html.TextAreaFor(m => m.ServiceDescription, new { @class = "form-control", @placeholder = "Enter Service Description", rows = "12" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.DisplayNameFor(m => m.Icon)
+                                @Html.TextBoxFor(m => m.Icon, new { @class = "form-control", @placeholder = "Enter Service Icon" })
+                                <small class="form-text text-muted">Go to <a href="https://fontawesome.com/v4.7.0/icons/">Font-Awesome</a> and paste icon name. <i>Example: barcode </i></small>
+                            </div>
+                            <div class="form-group">
+                                @Html.DisplayNameFor(m => m.DisplayOrder)
+                                @Html.TextBoxFor(m => m.DisplayOrder, new { @class = "form-control", @placeholder = "1 is higher than 100" })
+                            </div>
+                            <div class="toggle-flip">
+                                <label>
+                                    @Html.DisplayNameFor(m => m.IsActive)
+                                    @Html.CheckBoxFor(m => m.IsActive)<span class="flip-indecator" data-toggle-on="YES" data-toggle-off="NO"></span>
+                                </label>
+                            </div>
+                            <div class="tile-footer">
+                                <button id="demoNotify" class="btn btn-primary pull-right" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script>
+
+        $('#demoNotify').click(function () {
+            $.notify({
+                title: "Update Complete : ",
+                message: "Something cool is just updated!",
+                icon: 'fa fa-check'
+            }, {
+                    type: "info"
+                });
+        });
+
+    </script>
+
+}
