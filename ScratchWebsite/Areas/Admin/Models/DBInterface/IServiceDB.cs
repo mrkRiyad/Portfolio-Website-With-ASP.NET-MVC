@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ScratchWebsite.Areas.Admin.Models
 {
-    interface IServiceDB
+    interface IServiceDB<T> where T : class
     {
-        IEnumerable<ServiceViewModel> GetAll();
-        ServiceViewModel Get(int id);
-        ServiceViewModel Add(ServiceViewModel vm);
-        ServiceViewModel Update(ServiceViewModel vm);
+        IEnumerable<T> GetAll();
+        T Get(int id);
+        T Add(T vm);
+        T Update(T vm);
         void Delete(int id);
     }
 }

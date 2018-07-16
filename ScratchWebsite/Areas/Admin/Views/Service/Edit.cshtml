@@ -1,12 +1,17 @@
 ﻿@model ScratchWebsite.Areas.Admin.Models.ViewModel.ServiceViewModel
 @{
     ViewBag.Title = "Services";
+    ViewBag.SubTitle = "Home Page Slider Settings";
+    ViewBag.Icon = "files-o";
 }
 
 <div class="row">
     <div class="col-md-12">
         <div class="tile">
-            <h3 class="tile-title">Edit Service</h3>
+            <div class="clearfix">
+                <h3 class="tile-title pull-left">Edit Service</h3>
+                @Html.ActionLink("Add New Service", "Create", "Service", new { }, new { @class = "btn btn-outline-primary pull-right"})
+            </div>
             <div class="tile-body">
                 @using (Html.BeginForm())
                 {

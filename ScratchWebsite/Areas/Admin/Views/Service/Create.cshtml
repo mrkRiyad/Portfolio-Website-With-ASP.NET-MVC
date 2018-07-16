@@ -1,6 +1,8 @@
 ﻿@model ScratchWebsite.Areas.Admin.Models.ViewModel.ServiceViewModel
 @{
     ViewBag.Title = "Services";
+    ViewBag.SubTitle = "Home Page Slider Settings";
+    ViewBag.Icon = "files-o";
 }
 
 <div class="row">
@@ -16,16 +18,19 @@
                             <div class="form-group">
                                 @Html.DisplayNameFor(m => m.ServiceName)
                                 @Html.TextBoxFor(m => m.ServiceName, new { @class = "form-control", @placeholder = "Enter Service Title" })
+                                @Html.ValidationMessageFor(m => m.ServiceName)
                             </div>
                             <div class="form-group">
                                 @Html.DisplayNameFor(m => m.ServiceDescription)
                                 @Html.TextAreaFor(m => m.ServiceDescription, new { @class = "form-control", @placeholder = "Enter Service Description", rows = "12" })
+                                @Html.ValidationMessageFor(m => m.ServiceDescription)
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 @Html.DisplayNameFor(m => m.Icon)
                                 @Html.TextBoxFor(m => m.Icon, new { @class = "form-control", @placeholder = "Enter Service Icon" })
+                                @Html.ValidationMessageFor(m => m.Icon)
                                 <small class="form-text text-muted">Go to <a href="https://fontawesome.com/v4.7.0/icons/">Font-Awesome</a> and paste icon name. <i>Example: barcode </i></small>
                             </div>
                             <div class="form-group">

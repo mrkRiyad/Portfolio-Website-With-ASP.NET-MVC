@@ -24,15 +24,23 @@ namespace ScratchWebsite.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ServiceViewModel service)
         {
-            var model = crud.Add(service);
-            return View("Edit", model);
+            if (ModelState.IsValid)
+            {
+                var model = crud.Add(service);
+                return View("Edit", model);
+            }
+            return View();
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = crud.Get(id);
-            return View(model);
+            if (ModelState.IsValid)
+            {
+                var model = crud.Get(id);
+                return View(model);
+            }
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

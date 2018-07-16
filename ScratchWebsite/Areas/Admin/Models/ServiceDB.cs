@@ -7,7 +7,7 @@ using ScratchWebsite.Dal;
 
 namespace ScratchWebsite.Areas.Admin.Models
 {
-    public class ServiceDB : IServiceDB
+    public class ServiceDB : IServiceDB<ServiceViewModel>
     {
         // DB Context
         ScratchPortfolioEntities _db = new ScratchPortfolioEntities();

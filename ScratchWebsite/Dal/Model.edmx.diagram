@@ -7,10 +7,10 @@
       <Diagram DiagramId="48e16b0674cd4593acfaecc444d775de" Name="Diagram1">
         <EntityTypeShape EntityType="ScratchPortfolioModel.Categories" Width="1.5" PointX="6.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ScratchPortfolioModel.CatProjectRef" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ScratchPortfolioModel.MediaGalleries" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.MediaGalleries" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ScratchPortfolioModel.ProductGalleryRef" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ScratchPortfolioModel.Projects" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ScratchPortfolioModel.Services" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScratchPortfolioModel.Services" Width="1.5" PointX="4.875" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ScratchPortfolioModel.Sliders" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="ScratchPortfolioModel.FK__CatProjec__fkCat__15502E78" ManuallyRouted="false" />
         <AssociationConnector Association="ScratchPortfolioModel.FK__CatProjec__fkPro__145C0A3F" ManuallyRouted="false" />
