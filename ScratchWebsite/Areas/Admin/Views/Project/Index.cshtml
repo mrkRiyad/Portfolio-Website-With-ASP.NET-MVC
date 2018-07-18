@@ -28,9 +28,9 @@
                                 <td>@item.ProjecName</td>
                                 <td>@item.ProjectTechnology</td>
                                 <td>
-                                    @foreach (string cat in @item.CatName)
+                                    @foreach (var cat in @item.Category)
                                     {
-                                        <text ><span class="badge badge-secondary"> @cat </span></text>
+                                        <text ><span class="badge badge-secondary badge-pill"> @cat.CategoryName </span></text>
                                     }
                                 </td>
                                 <td>@item.DisplayOrder</td>
@@ -41,10 +41,8 @@
                                 </td>
                             </tr>
                         }
-
                 </table>
             </div>
-            <img src="~/Upload/bicycle.jpg" alt="Alternate Text" />
         </div>
     </div>
 </div>

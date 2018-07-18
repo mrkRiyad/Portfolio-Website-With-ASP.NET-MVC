@@ -11,7 +11,8 @@ namespace ScratchWebsite.Areas.Admin.Models.ViewModel
         public string ProjecName { get; set; }
         public string ProjectDescription { get; set; }
         public string ProjectTechnology { get; set; }
-        public IEnumerable<string> CatName { get; set; }
+        public IEnumerable<CategoryViewModel> Category { get; set; }
+        public IEnumerable<MediaGalleryViewModel> Media { get; set; }
 
         //public Nullable<int> MGID { get; set; }
         //public string Caption { get; set; }

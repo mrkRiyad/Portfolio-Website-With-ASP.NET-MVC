@@ -16,5 +16,15 @@ namespace ScratchWebsite.Areas.Admin.Controllers
             var model = _db.GetAll();
             return View(model);
         }
+
+        public ActionResult Edit(int ProjectID)
+        {
+            if (ModelState.IsValid) 
+            {
+                var model = _db.Get(ProjectID);
+                return View(model);
+            }
+            return View();
+        }
     }
 }
