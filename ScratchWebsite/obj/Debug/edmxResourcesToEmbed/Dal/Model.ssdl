@@ -24,8 +24,9 @@
     <Property Name="MGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Caption" Type="varchar" MaxLength="255" />
     <Property Name="FilePathOrLink" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="IsDefault" Type="bit" />
-    <Property Name="IsThumbnail" Type="bit" />
+    <Property Name="FileName" Type="varchar" MaxLength="100" />
+    <Property Name="FileFormat" Type="varchar" MaxLength="10" />
+    <Property Name="ThumbnailUrl" Type="varchar" MaxLength="255" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="ProductGalleryRef">
@@ -35,6 +36,8 @@
     <Property Name="PGRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fkProjectID" Type="int" Nullable="false" />
     <Property Name="fkMGID" Type="int" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="ImageSize" Type="varchar" MaxLength="25" />
   </EntityType>
   <EntityType Name="Projects">
     <Key>

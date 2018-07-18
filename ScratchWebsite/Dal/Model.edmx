@@ -29,8 +29,9 @@
           <Property Name="MGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Caption" Type="varchar" MaxLength="255" />
           <Property Name="FilePathOrLink" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="IsDefault" Type="bit" />
-          <Property Name="IsThumbnail" Type="bit" />
+          <Property Name="FileName" Type="varchar" MaxLength="100" />
+          <Property Name="FileFormat" Type="varchar" MaxLength="10" />
+          <Property Name="ThumbnailUrl" Type="varchar" MaxLength="255" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityType Name="ProductGalleryRef">
@@ -40,6 +41,8 @@
           <Property Name="PGRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fkProjectID" Type="int" Nullable="false" />
           <Property Name="fkMGID" Type="int" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" />
+          <Property Name="ImageSize" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="Projects">
           <Key>
@@ -171,28 +174,6 @@
           <NavigationProperty Name="Categories" Relationship="Self.FK__CatProjec__fkCat__15502E78" FromRole="CatProjectRef" ToRole="Categories" />
           <NavigationProperty Name="Projects" Relationship="Self.FK__CatProjec__fkPro__145C0A3F" FromRole="CatProjectRef" ToRole="Projects" />
         </EntityType>
-        <EntityType Name="MediaGalleries">
-          <Key>
-            <PropertyRef Name="MGID" />
-          </Key>
-          <Property Name="MGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Caption" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FilePathOrLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsDefault" Type="Boolean" />
-          <Property Name="IsThumbnail" Type="Boolean" />
-          <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="ProductGalleryRef" Relationship="Self.FK__ProductGa__fkMGI__1B0907CE" FromRole="MediaGalleries" ToRole="ProductGalleryRef" />
-        </EntityType>
-        <EntityType Name="ProductGalleryRef">
-          <Key>
-            <PropertyRef Name="PGRID" />
-          </Key>
-          <Property Name="PGRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fkProjectID" Type="Int32" Nullable="false" />
-          <Property Name="fkMGID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MediaGalleries" Relationship="Self.FK__ProductGa__fkMGI__1B0907CE" FromRole="ProductGalleryRef" ToRole="MediaGalleries" />
-          <NavigationProperty Name="Projects" Relationship="Self.FK__ProductGa__fkPro__1A14E395" FromRole="ProductGalleryRef" ToRole="Projects" />
-        </EntityType>
         <EntityType Name="Projects">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -204,7 +185,7 @@
           <Property Name="DisplayOrder" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="CatProjectRef" Relationship="Self.FK__CatProjec__fkPro__145C0A3F" FromRole="Projects" ToRole="CatProjectRef" />
-          <NavigationProperty Name="ProductGalleryRef" Relationship="Self.FK__ProductGa__fkPro__1A14E395" FromRole="Projects" ToRole="ProductGalleryRef" />
+          <NavigationProperty Name="ProductGalleryRef" Relationship="ScratchPortfolioModel.FK__ProductGa__fkPro__1A14E395" FromRole="Projects" ToRole="ProductGalleryRef" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -252,35 +233,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductGa__fkMGI__1B0907CE">
-          <End Role="MediaGalleries" Type="Self.MediaGalleries" Multiplicity="1" />
-          <End Role="ProductGalleryRef" Type="Self.ProductGalleryRef" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MediaGalleries">
-              <PropertyRef Name="MGID" />
-            </Principal>
-            <Dependent Role="ProductGalleryRef">
-              <PropertyRef Name="fkMGID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ProductGa__fkPro__1A14E395">
-          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
-          <End Role="ProductGalleryRef" Type="Self.ProductGalleryRef" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Projects">
-              <PropertyRef Name="ProjectID" />
-            </Principal>
-            <Dependent Role="ProductGalleryRef">
-              <PropertyRef Name="fkProjectID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ScratchPortfolioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="CatProjectRef" EntityType="Self.CatProjectRef" />
-          <EntitySet Name="MediaGalleries" EntityType="Self.MediaGalleries" />
-          <EntitySet Name="ProductGalleryRef" EntityType="Self.ProductGalleryRef" />
           <EntitySet Name="Projects" EntityType="Self.Projects" />
           <EntitySet Name="Services" EntityType="Self.Services" />
           <EntitySet Name="Sliders" EntityType="Self.Sliders" />
@@ -292,15 +247,66 @@
             <End Role="Projects" EntitySet="Projects" />
             <End Role="CatProjectRef" EntitySet="CatProjectRef" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductGa__fkMGI__1B0907CE" Association="Self.FK__ProductGa__fkMGI__1B0907CE">
+          <EntitySet Name="MediaGalleries" EntityType="ScratchPortfolioModel.MediaGalleries" />
+          <EntitySet Name="ProductGalleryRef" EntityType="ScratchPortfolioModel.ProductGalleryRef" />
+          <AssociationSet Name="FK__ProductGa__fkMGI__1B0907CE" Association="ScratchPortfolioModel.FK__ProductGa__fkMGI__1B0907CE">
             <End Role="MediaGalleries" EntitySet="MediaGalleries" />
             <End Role="ProductGalleryRef" EntitySet="ProductGalleryRef" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductGa__fkPro__1A14E395" Association="Self.FK__ProductGa__fkPro__1A14E395">
+          <AssociationSet Name="FK__ProductGa__fkPro__1A14E395" Association="ScratchPortfolioModel.FK__ProductGa__fkPro__1A14E395">
             <End Role="Projects" EntitySet="Projects" />
             <End Role="ProductGalleryRef" EntitySet="ProductGalleryRef" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="MediaGalleries">
+          <Key>
+            <PropertyRef Name="MGID" />
+          </Key>
+          <Property Name="MGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Caption" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FilePathOrLink" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FileFormat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ThumbnailUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="ProductGalleryRef" Relationship="ScratchPortfolioModel.FK__ProductGa__fkMGI__1B0907CE" FromRole="MediaGalleries" ToRole="ProductGalleryRef" />
+        </EntityType>
+        <EntityType Name="ProductGalleryRef">
+          <Key>
+            <PropertyRef Name="PGRID" />
+          </Key>
+          <Property Name="PGRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkProjectID" Type="Int32" Nullable="false" />
+          <Property Name="fkMGID" Type="Int32" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <Property Name="ImageSize" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MediaGalleries" Relationship="ScratchPortfolioModel.FK__ProductGa__fkMGI__1B0907CE" FromRole="ProductGalleryRef" ToRole="MediaGalleries" />
+          <NavigationProperty Name="Projects" Relationship="ScratchPortfolioModel.FK__ProductGa__fkPro__1A14E395" FromRole="ProductGalleryRef" ToRole="Projects" />
+        </EntityType>
+        <Association Name="FK__ProductGa__fkMGI__1B0907CE">
+          <End Type="ScratchPortfolioModel.MediaGalleries" Role="MediaGalleries" Multiplicity="1" />
+          <End Type="ScratchPortfolioModel.ProductGalleryRef" Role="ProductGalleryRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaGalleries">
+              <PropertyRef Name="MGID" />
+            </Principal>
+            <Dependent Role="ProductGalleryRef">
+              <PropertyRef Name="fkMGID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductGa__fkPro__1A14E395">
+          <End Type="ScratchPortfolioModel.Projects" Role="Projects" Multiplicity="1" />
+          <End Type="ScratchPortfolioModel.ProductGalleryRef" Role="ProductGalleryRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ProductGalleryRef">
+              <PropertyRef Name="fkProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -323,27 +329,6 @@
                 <ScalarProperty Name="CPRID" ColumnName="CPRID" />
                 <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
                 <ScalarProperty Name="fkCategoryID" ColumnName="fkCategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MediaGalleries">
-            <EntityTypeMapping TypeName="ScratchPortfolioModel.MediaGalleries">
-              <MappingFragment StoreEntitySet="MediaGalleries">
-                <ScalarProperty Name="MGID" ColumnName="MGID" />
-                <ScalarProperty Name="Caption" ColumnName="Caption" />
-                <ScalarProperty Name="FilePathOrLink" ColumnName="FilePathOrLink" />
-                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
-                <ScalarProperty Name="IsThumbnail" ColumnName="IsThumbnail" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductGalleryRef">
-            <EntityTypeMapping TypeName="ScratchPortfolioModel.ProductGalleryRef">
-              <MappingFragment StoreEntitySet="ProductGalleryRef">
-                <ScalarProperty Name="PGRID" ColumnName="PGRID" />
-                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
-                <ScalarProperty Name="fkMGID" ColumnName="fkMGID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -380,6 +365,30 @@
                 <ScalarProperty Name="SliderImageUrl" ColumnName="SliderImageUrl" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaGalleries">
+            <EntityTypeMapping TypeName="ScratchPortfolioModel.MediaGalleries">
+              <MappingFragment StoreEntitySet="MediaGalleries">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ThumbnailUrl" ColumnName="ThumbnailUrl" />
+                <ScalarProperty Name="FileFormat" ColumnName="FileFormat" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePathOrLink" ColumnName="FilePathOrLink" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="MGID" ColumnName="MGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductGalleryRef">
+            <EntityTypeMapping TypeName="ScratchPortfolioModel.ProductGalleryRef">
+              <MappingFragment StoreEntitySet="ProductGalleryRef">
+                <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="fkMGID" ColumnName="fkMGID" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="PGRID" ColumnName="PGRID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,5 +10,7 @@ namespace ScratchWebsite.Areas.Admin.Models.ViewModel
         public int PGRID { get; set; }
         public int fkProjectID { get; set; }
         public int fkMGID { get; set; }
+        public virtual MediaGalleryViewModel MediaGalleries { get; set; }
+        public virtual ProjectViewModel Projects { get; set; }
     }
 }

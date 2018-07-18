@@ -20,27 +20,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MediaGalleries">
-      <EntityTypeMapping TypeName="ScratchPortfolioModel.MediaGalleries">
-        <MappingFragment StoreEntitySet="MediaGalleries">
-          <ScalarProperty Name="MGID" ColumnName="MGID" />
-          <ScalarProperty Name="Caption" ColumnName="Caption" />
-          <ScalarProperty Name="FilePathOrLink" ColumnName="FilePathOrLink" />
-          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
-          <ScalarProperty Name="IsThumbnail" ColumnName="IsThumbnail" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ProductGalleryRef">
-      <EntityTypeMapping TypeName="ScratchPortfolioModel.ProductGalleryRef">
-        <MappingFragment StoreEntitySet="ProductGalleryRef">
-          <ScalarProperty Name="PGRID" ColumnName="PGRID" />
-          <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
-          <ScalarProperty Name="fkMGID" ColumnName="fkMGID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Projects">
       <EntityTypeMapping TypeName="ScratchPortfolioModel.Projects">
         <MappingFragment StoreEntitySet="Projects">
@@ -74,6 +53,30 @@
           <ScalarProperty Name="SliderImageUrl" ColumnName="SliderImageUrl" />
           <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaGalleries">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.MediaGalleries">
+        <MappingFragment StoreEntitySet="MediaGalleries">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ThumbnailUrl" ColumnName="ThumbnailUrl" />
+          <ScalarProperty Name="FileFormat" ColumnName="FileFormat" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FilePathOrLink" ColumnName="FilePathOrLink" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="MGID" ColumnName="MGID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGalleryRef">
+      <EntityTypeMapping TypeName="ScratchPortfolioModel.ProductGalleryRef">
+        <MappingFragment StoreEntitySet="ProductGalleryRef">
+          <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="fkMGID" ColumnName="fkMGID" />
+          <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+          <ScalarProperty Name="PGRID" ColumnName="PGRID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

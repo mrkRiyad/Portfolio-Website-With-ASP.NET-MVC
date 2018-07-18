@@ -194,9 +194,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
-    <Compile Include="Areas\Admin\Models\DBInterface\IServiceDB.cs" />
+    <Compile Include="Areas\Admin\Models\DBInterface\IDbClass.cs" />
+    <Compile Include="Areas\Admin\Models\ProjectDB.cs" />
     <Compile Include="Areas\Admin\Models\ServiceDB.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\AdminViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\CategoryViewModel.cs" />
@@ -338,6 +340,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Service\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Project\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -361,6 +364,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Upload\bicycle.jpg" />
+    <Content Include="Upload\glass.jpg" />
+    <Content Include="Upload\Toy-Car.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

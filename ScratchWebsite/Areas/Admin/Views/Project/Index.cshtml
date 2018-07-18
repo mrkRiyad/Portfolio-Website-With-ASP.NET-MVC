@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ScratchWebsite.Areas.Admin.Models.ViewModel.ProjectViewModel>
+@{
+    ViewBag.Title = "Project";
+    ViewBag.SubTitle = "All Projects Settings";
+    ViewBag.Icon = "briefcase";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <h3 class="tile-title">All Project</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Project Name</th>
+                            <th>Technology</th>
+                            <th>Category</th>
+                            <th>Display Order</th>
+                            <th>Public</th>
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProjectID</td>
+                                <td>@item.ProjecName</td>
+                                <td>@item.ProjectTechnology</td>
+                                <td>
+                                    @foreach (string cat in @item.CatName)
+                                    {
+                                        <text ><span class="badge badge-secondary"> @cat </span></text>
+                                    }
+                                </td>
+                                <td>@item.DisplayOrder</td>
+                                <td>@Convert.ToInt32(@item.IsActive).IsPublic()</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", new { id = item.ProjectID})"><i class="fa fa-edit"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you wish to delete this article?');" href="@Url.Action("Delete", new { id = item.ProjectID})"><i class="fa fa-trash-o"> Delete</i></a>
+                                </td>
+                            </tr>
+                        }
+
+                </table>
+            </div>
+            <img src="~/Upload/bicycle.jpg" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+
+

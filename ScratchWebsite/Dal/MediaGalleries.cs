@@ -23,8 +23,9 @@ namespace ScratchWebsite.Dal
         public int MGID { get; set; }
         public string Caption { get; set; }
         public string FilePathOrLink { get; set; }
-        public Nullable<bool> IsDefault { get; set; }
-        public Nullable<bool> IsThumbnail { get; set; }
+        public string FileName { get; set; }
+        public string FileFormat { get; set; }
+        public string ThumbnailUrl { get; set; }
         public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

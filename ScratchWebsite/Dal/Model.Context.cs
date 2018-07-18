@@ -27,10 +27,10 @@ namespace ScratchWebsite.Dal
     
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CatProjectRef> CatProjectRef { get; set; }
-        public virtual DbSet<MediaGalleries> MediaGalleries { get; set; }
-        public virtual DbSet<ProductGalleryRef> ProductGalleryRef { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<Sliders> Sliders { get; set; }
+        public virtual DbSet<MediaGalleries> MediaGalleries { get; set; }
+        public virtual DbSet<ProductGalleryRef> ProductGalleryRef { get; set; }
     }
 }

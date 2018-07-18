@@ -17,6 +17,8 @@ namespace ScratchWebsite.Dal
         public int PGRID { get; set; }
         public int fkProjectID { get; set; }
         public int fkMGID { get; set; }
+        public Nullable<bool> IsDefault { get; set; }
+        public string ImageSize { get; set; }
     
         public virtual MediaGalleries MediaGalleries { get; set; }
         public virtual Projects Projects { get; set; }
